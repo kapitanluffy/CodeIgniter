@@ -47,6 +47,15 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+	
+	function start() {
+		$this->session->set_flashdata('my_flash', "hello\r");
+		redirect('welcome/end');
+	}
+	
+	function end() {
+		echo $this->session->flashdata('my_flash');
+	}
 }
 
 /* End of file welcome.php */
